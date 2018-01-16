@@ -7,9 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import cn.temptation.dao.UserDao;
-import cn.temptation.domain.User;
+import cn.temptation.dao.UserInfoMapper;
+import cn.temptation.entity.UserInfo;
 
 /**
  * ÓÃ»§¿ØÖÆÆ÷
@@ -18,7 +17,7 @@ import cn.temptation.domain.User;
 @RequestMapping(value = "/user")
 public class UserController {
     @Resource
-    private UserDao userDao;
+    private UserInfoMapper userDao;
 
     @RequestMapping("/view")
     public String view() {
@@ -31,8 +30,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView login(User model, HttpSession session) {
-        User user = userDao.findByUsername(model.getUsername());
+    public ModelAndView login(UserInfo model, HttpSession session) {
+    	UserInfo user =userDao.selectByPrimaryKey(1);
 
         if (user == null || !user.getPassword().equals(model.getPassword())) {
             return new ModelAndView("redirect:/login.jsp");

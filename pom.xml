@@ -125,8 +125,15 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-					<!--配置文件的路径-->
-                    <configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile> 
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<configuration>
+					<!--配置文件的路径 -->
+					<configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile>
 				</configuration>
 			</plugin>
 		</plugins>
