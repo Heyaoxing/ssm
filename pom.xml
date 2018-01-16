@@ -12,6 +12,7 @@
 		<!-- Spring版本号 -->
 		<spring.version>4.3.8.RELEASE</spring.version>
 	</properties>
+	
 	<dependencies>
 		<!-- Spring相关包 -->
 		<dependency>
